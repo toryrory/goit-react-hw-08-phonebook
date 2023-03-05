@@ -1,13 +1,12 @@
-import { NavLink } from 'react-router-dom';
 import { UserDropDownMenu } from 'components/AppBar/UserMenu/UserDropDownMenu';
+import { StyledNavLink } from '../Navigation/Navigation.styled';
+import {Container} from './UserNav.styled'
 
 export const UserNav = () => {
   return (
-    <div>
-      <NavLink to="/contacts">Contacts</NavLink>
-      <UserDropDownMenu/>
-      {/* <span>Welcome, {userName}!</span>
-      <button type='button'>Log out</button> */}
-    </div>
+    <Container>
+      <StyledNavLink to="/contacts">Contacts</StyledNavLink>
+      <UserDropDownMenu />
+    </Container>
   );
 };

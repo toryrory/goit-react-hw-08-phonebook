@@ -1,12 +1,15 @@
 import { Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { ToastContainer } from "react-toastify";
+import { injectStyle } from 'react-toastify/dist/inject-style'; // CALL IT ONCE IN YOUR APP
 import { authOperations } from "redux/auth/operations";
 import { authSelectors } from "redux/auth/selectors";
 import { AppBar } from "./AppBar/AppBar";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import RestrictedRoute from "./RestrictedRoute/RestrictedRoute";
 import { Suspense, lazy } from "react";
+injectStyle();
 const Home = lazy(() => import('pages/Home/Home'));
 const Contacts = lazy(() => import('pages/Contacts/Contacts'));
 const Registration = lazy(() => import('pages/Register/Register'));
@@ -50,6 +53,10 @@ export function App() {
             />
           </Route>
         </Routes>
+        <ToastContainer
+          autoClose={3000}
+          toastStyle={{ backgroundColor: '#f3e1dc' }}
+        />
       </Suspense>
     )
   );

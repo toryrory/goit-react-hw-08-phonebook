@@ -64,6 +64,7 @@ export const LoginForm = () => {
         </Typography>
         <TextField
           sx={{ width: '400px' }}
+          color="secondary"
           type="email"
           name="email"
           value={email}
@@ -76,6 +77,7 @@ export const LoginForm = () => {
         />
         <TextField
           sx={{ width: '400px' }}
+          color="secondary"
           type="password"
           name="password"
           value={password}
@@ -95,6 +97,12 @@ export const LoginForm = () => {
             marginBottom: '20px',
             display: 'flex',
             justifyContent: 'center',
+            color: '#dd5050',
+            borderColor: '#dd5050',
+            '&:hover': {
+              backgroundColor: '#f2d8d86c',
+              borderColor: '#dd5050',
+            },
           }}
         >
           Log In

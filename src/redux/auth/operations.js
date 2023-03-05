@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { notificationError } from 'helpers/notificationError';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
@@ -18,6 +19,7 @@ const registration = createAsyncThunk(
       setAuthToken(resp.data.token);
       return resp.data;
     } catch (e) {
+      notificationError(e.response.status, 'User creation error', 'Server error');
       return ThunkAPI.rejectWithValue(e.message);
     }
   }
@@ -28,6 +30,7 @@ const logIn = createAsyncThunk('auth/login', async (credentials, ThunkAPI) => {
     setAuthToken(resp.data.token);
     return resp.data;
   } catch (e) {
+    notificationError(e.response.status, 'Login error', 'Server error');
     return ThunkAPI.rejectWithValue(e.message);
   }
 });

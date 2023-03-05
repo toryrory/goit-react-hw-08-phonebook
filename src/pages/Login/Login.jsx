@@ -1,12 +1,13 @@
 import { LoginForm } from 'components/LoginForm/LoginForm';
 import { Title } from '../Register/Register.styled';
+import { PageContainer } from 'components/PageContainer/PageContainer';
 
  const Login = () => {
   return (
-    <div>
+    <PageContainer>
       <Title>Log in to your account</Title>
       <LoginForm />
-    </div>
+    </PageContainer>
   );
 };
 export default Login;

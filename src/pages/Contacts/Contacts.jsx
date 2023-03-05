@@ -1,4 +1,10 @@
-import { Container, Section1, Section2, Spinner } from './Contacts.styled';
+import {
+  Container,
+  Section1,
+  Section2,
+  Spinner,
+  Title,
+} from './Contacts.styled';
 import { fetchContacts } from 'redux/contacts/operations';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -7,6 +13,7 @@ import { selectIsLoading, selectError } from 'redux/contacts/selectors';
 import { ContactForm } from '../../components/Form/ContactForm';
 import { ContactList } from '../../components/ContactList/ContactList';
 import { ContactFilter } from '../../components/ContactFilter/ContactFilter';
+import SquaresBG from 'react-animated-squares';
 
  const Contacts = () => {
   const isLoading = useSelector(selectIsLoading);
@@ -17,24 +24,30 @@ import { ContactFilter } from '../../components/ContactFilter/ContactFilter';
     dispatch(fetchContacts());
   }, [dispatch]);
 
-  return (
-    <Container>
-      <Section1>
-        <h1>Phonebook</h1>
-        <ContactForm />
-      </Section1>
-      <Section2>
-        <h2>Contacts</h2>
-        <ContactFilter />
-        {isLoading && !error && (
-          <Spinner>
-            <RotatingLines strokeColor="grey" width="35" />
-          </Spinner>
-        )}
-        <ContactList />
-      </Section2>
-    </Container>
-  );
+   return (
+     <Container>
+       <SquaresBG
+         count={20}
+         speed={0.7}
+         backgroundColor={'#f0c5ae'}
+         squareColor={'#ffffff'}
+       />
+       <Section1>
+         <Title>Phonebook</Title>
+         <ContactForm />
+       </Section1>
+       <Section2>
+         <Title>Contacts</Title>
+         <ContactFilter />
+         {isLoading && !error && (
+           <Spinner>
+             <RotatingLines strokeColor="#f0c5ae" width="35" />
+           </Spinner>
+         )}
+         <ContactList />
+       </Section2>
+     </Container>
+   );
 };
 
 export default Contacts;

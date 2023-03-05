@@ -1,8 +1,15 @@
+import {Title, Text} from './Home.styled'
+import { PageContainer } from 'components/PageContainer/PageContainer';
+
 const Home = () => {
-    return (
-        <div>
-            <h1>Welcome to Phonebook</h1>
-        </div>
-    )
+  return (
+    <PageContainer>
+      <Title>Welcome to Phonebook</Title>
+      <Text>
+        The application will help you quickly find the desired contact and keep
+        order in your address book.
+      </Text>
+    </PageContainer>
+  );
 };
 export default Home;

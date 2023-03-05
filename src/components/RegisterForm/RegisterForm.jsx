@@ -67,7 +67,10 @@ export const RegisterForm = () => {
           />
         </Typography>
         <TextField
-          sx={{ width: '400px' }}
+          sx={{
+            width: '400px',
+          }}
+          color="secondary"
           type="text"
           name="username"
           value={name}
@@ -80,6 +83,7 @@ export const RegisterForm = () => {
         />
         <TextField
           sx={{ width: '400px' }}
+          color="secondary"
           type="email"
           name="email"
           value={email}
@@ -92,6 +96,7 @@ export const RegisterForm = () => {
         />
         <TextField
           sx={{ width: '400px' }}
+          color="secondary"
           type="password"
           name="password"
           value={password}
@@ -111,6 +116,12 @@ export const RegisterForm = () => {
             marginBottom: '20px',
             display: 'flex',
             justifyContent: 'center',
+            color: '#dd5050',
+            borderColor: '#dd5050',
+            '&:hover': {
+              backgroundColor: '#f2d8d86c',
+              borderColor: '#dd5050',
+            },
           }}
         >
           Register
