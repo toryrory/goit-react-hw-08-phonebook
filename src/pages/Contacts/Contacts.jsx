@@ -13,7 +13,6 @@ import { selectIsLoading, selectError } from 'redux/contacts/selectors';
 import { ContactForm } from '../../components/Form/ContactForm';
 import { ContactList } from '../../components/ContactList/ContactList';
 import { ContactFilter } from '../../components/ContactFilter/ContactFilter';
-import SquaresBG from 'react-animated-squares';
 
 const Contacts = () => {
   const isLoading = useSelector(selectIsLoading);
@@ -26,12 +25,6 @@ const Contacts = () => {
 
   return (
     <Container>
-      <SquaresBG
-        count={20}
-        speed={0.7}
-        backgroundColor={'#f0c5ae'}
-        squareColor={'#ffffff'}
-      />
       <Section1>
         <Title>Phonebook</Title>
         <ContactForm />

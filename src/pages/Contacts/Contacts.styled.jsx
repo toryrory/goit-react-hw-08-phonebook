@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   gap: 3px;
-  overflow: hidden;
 `;
 export const Section1 = styled.div`
   border-radius: 5px 50px 50px 5px;
