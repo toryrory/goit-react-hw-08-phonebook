@@ -5,7 +5,7 @@ export const selectError = state => state.contacts.error;
 
 export const selectFiltredContacts = state => {
   const contacts = selectContacts(state);
-    const filter = selectFilter(state);
+  const filter = selectFilter(state);
   return contacts.filter(({ name }) =>
     name.toLowerCase().includes(filter.toLowerCase())
   );

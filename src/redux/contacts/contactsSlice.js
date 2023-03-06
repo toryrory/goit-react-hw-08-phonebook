@@ -3,6 +3,7 @@ import { fetchContacts, addContact, deleteContact } from './operations';
 
 const extraActions = [fetchContacts, addContact, deleteContact];
 const getAction = type => extraActions.map(action => action[type]);
+
 export const contactsSlice = createSlice({
   name: 'contacts',
   initialState: {

@@ -1,9 +1,12 @@
-import { Box, Typography, TextField, Button } from '@mui/material';
-import AutoStoriesIcon from '@mui/icons-material/AutoStories';
+import { Typography } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { authOperations } from 'redux/auth/operations';
+import { InputName, InputEmail, InputPassword } from 'formComponents/Inputs';
+import { SubmitButton } from 'formComponents/SubmitButton';
+import { FormTitle } from 'formComponents/FormTitle';
+import { FormBox } from 'formComponents/FormBox';
 
 export const RegisterForm = () => {
   const [name, setName] = useState('');
@@ -11,125 +14,35 @@ export const RegisterForm = () => {
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
 
-  const handleInput = ({target: {name, value}}) => {
+  const handleInput = ({ target: { name, value } }) => {
     switch (name) {
       case 'username':
-       return setName(value);
+        return setName(value);
       case 'email':
-       return setEmail(value);
+        return setEmail(value);
       case 'password':
-       return setPassword(value);
+        return setPassword(value);
       default:
         break;
     }
-  }
+  };
   const handleSubmit = e => {
     e.preventDefault();
     dispatch(authOperations.registration({ name, email, password }));
     setName('');
     setEmail('');
     setPassword('');
-  }
+  };
   return (
-    <div>
-      <Box
-        component="form"
-        onSubmit={handleSubmit}
-        sx={{
-          width: '470px',
-          display: 'flex',
-          flexDirection: 'column',
-          backgroundColor: 'white',
-          alignItems: 'center',
-          margin: 'auto',
-          marginTop: '40px',
-          padding: '25px',
-          border: '1px solid black',
-          borderRadius: '8px',
-          '&:hover': {
-            boxShadow: '2px 2px 19px 0px rgba(0, 0, 0, 0.75)',
-          },
-        }}
-        autoComplete="off"
-      >
-        <Typography
-          variant="h4"
-          textAlign="center"
-          padding="25px"
-          textTransform="uppercase"
-        >
-          Create Account
-          <AutoStoriesIcon
-            sx={{
-              fontSize: '35px',
-              marginLeft: '20px',
-            }}
-          />
-        </Typography>
-        <TextField
-          sx={{
-            width: '400px',
-          }}
-          color="secondary"
-          type="text"
-          name="username"
-          value={name}
-          variant="outlined"
-          margin="normal"
-          label="Username"
-          placeholder="PepaPig"
-          required
-          onChange={handleInput}
-        />
-        <TextField
-          sx={{ width: '400px' }}
-          color="secondary"
-          type="email"
-          name="email"
-          value={email}
-          variant="outlined"
-          label="Email"
-          placeholder="PepaPig@gmail.com"
-          margin="normal"
-          required
-          onChange={handleInput}
-        />
-        <TextField
-          sx={{ width: '400px' }}
-          color="secondary"
-          type="password"
-          name="password"
-          value={password}
-          variant="outlined"
-          label="Password"
-          placeholder="Min 7 symbols required"
-          margin="normal"
-          required
-          onChange={handleInput}
-        />
-        <Button
-          type="submit"
-          variant="outlined"
-          sx={{
-            width: '150px',
-            marginTop: '20px',
-            marginBottom: '20px',
-            display: 'flex',
-            justifyContent: 'center',
-            color: '#dd5050',
-            borderColor: '#dd5050',
-            '&:hover': {
-              backgroundColor: '#f2d8d86c',
-              borderColor: '#dd5050',
-            },
-          }}
-        >
-          Register
-        </Button>
-        <Typography>
-          <NavLink to="/login">Log In</NavLink> if you already have an account.
-        </Typography>
-      </Box>
-    </div>
+    <FormBox onChange={handleSubmit}>
+      <FormTitle>Create Account</FormTitle>
+      <InputName name={name} onChange={handleInput} />
+      <InputEmail email={email} onChange={handleInput} />
+      <InputPassword password={password} onChange={handleInput} />
+      <SubmitButton>Register</SubmitButton>
+      <Typography>
+        <NavLink to="/login">Log In</NavLink> if you already have an account.
+      </Typography>
+    </FormBox>
   );
 };

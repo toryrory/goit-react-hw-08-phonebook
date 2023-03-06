@@ -15,7 +15,7 @@ import { ContactList } from '../../components/ContactList/ContactList';
 import { ContactFilter } from '../../components/ContactFilter/ContactFilter';
 import SquaresBG from 'react-animated-squares';
 
- const Contacts = () => {
+const Contacts = () => {
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 
@@ -24,30 +24,30 @@ import SquaresBG from 'react-animated-squares';
     dispatch(fetchContacts());
   }, [dispatch]);
 
-   return (
-     <Container>
-       <SquaresBG
-         count={20}
-         speed={0.7}
-         backgroundColor={'#f0c5ae'}
-         squareColor={'#ffffff'}
-       />
-       <Section1>
-         <Title>Phonebook</Title>
-         <ContactForm />
-       </Section1>
-       <Section2>
-         <Title>Contacts</Title>
-         <ContactFilter />
-         {isLoading && !error && (
-           <Spinner>
-             <RotatingLines strokeColor="#f0c5ae" width="35" />
-           </Spinner>
-         )}
-         <ContactList />
-       </Section2>
-     </Container>
-   );
+  return (
+    <Container>
+      <SquaresBG
+        count={20}
+        speed={0.7}
+        backgroundColor={'#f0c5ae'}
+        squareColor={'#ffffff'}
+      />
+      <Section1>
+        <Title>Phonebook</Title>
+        <ContactForm />
+      </Section1>
+      <Section2>
+        <Title>Contacts</Title>
+        <ContactFilter />
+        {isLoading && !error && (
+          <Spinner>
+            <RotatingLines strokeColor="#f0c5ae" width="35" />
+          </Spinner>
+        )}
+        <ContactList />
+      </Section2>
+    </Container>
+  );
 };
 
 export default Contacts;

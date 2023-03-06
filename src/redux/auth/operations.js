@@ -19,7 +19,11 @@ const registration = createAsyncThunk(
       setAuthToken(resp.data.token);
       return resp.data;
     } catch (e) {
-      notificationError(e.response.status, 'User creation error', 'Server error');
+      notificationError(
+        e.response.status,
+        'User creation error',
+        'Server error'
+      );
       return ThunkAPI.rejectWithValue(e.message);
     }
   }

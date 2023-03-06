@@ -1,4 +1,3 @@
-import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { AuthNav } from '../AuthNav/AuthNav';
 import { UserNav } from '../UserNav/UserNav';
@@ -11,7 +10,9 @@ export const Navigation = () => {
   const isLoggedIn = useSelector(authSelectors.selectIsLoggedIn);
   return (
     <Container>
-      <StyledNavLink to="/"><AutoStoriesIcon fontSize='medium'/> Home</StyledNavLink>
+      <StyledNavLink to="/">
+        <AutoStoriesIcon fontSize="medium" /> Home
+      </StyledNavLink>
       {isLoggedIn ? <UserNav /> : <AuthNav />}
     </Container>
   );

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import SquaresBG from 'react-animated-squares';
 import { Container } from './PageContainer.styled';
 
@@ -13,4 +14,8 @@ export const PageContainer = ({ children }) => {
       {children}
     </Container>
   );
+};
+
+PageContainer.propTypes = {
+  children: PropTypes.array.isRequired,
 };

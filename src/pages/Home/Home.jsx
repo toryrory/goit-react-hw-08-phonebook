@@ -1,4 +1,4 @@
-import {Title, Text} from './Home.styled'
+import { Title, Text } from './Home.styled';
 import { PageContainer } from 'components/PageContainer/PageContainer';
 
 const Home = () => {
